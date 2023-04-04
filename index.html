@@ -2482,10 +2482,39 @@ Obamium Discord Server
 </a>
 <h4> ---------------------------------------------------------------------------------------------------------------------------------------------------- <h4>
 <h2> Other Websites <h2>
-<a href="https://thetyphoon1.github.io/Talkingben/">
-Talking Ben
+<a href="">
+(Work In Progress)
 </a>
-
-
-  
+<h4> ---------------------------------------------------------------------------------------------------------------------------------------------------- <h4>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Feeling Lucky?</title>
+    <style>
+      #luckyButton {
+        padding: 10px 20px;
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      function onLuckyButtonClick() {
+        var luckyChance = Math.random(); // generate a random number between 0 and 1
+        if (luckyChance <= 0.005) { // 0.5% chance
+          document.getElementById("luckyButton").innerText = "Congratulations only 0.5% of people see this!";
+        } else {
+          document.getElementById("luckyButton").innerText = "Unlucky";
+        }
+        document.getElementById("luckyButton").disabled = true; // disable the button
+      }
+    </script>
+  </head>
+  <body>
+    <button id="luckyButton" onclick="onLuckyButtonClick()">Feeling Lucky?</button>
+  </body>
+</html>
   
