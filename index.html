@@ -1,9 +1,9 @@
 <html>
-    <head>
+  <head>
     <meta charset="UTF-8">
   </head>
   <body onload="startTimer()">
-      <p>You have been on this website for:</p> <p id="timer">00:00:00</p>
+    <p>You have had this website open for:</p> <p id="timer">00:00:00</p>
     <script>
       var startTime = Date.now();
       var timerElement = document.getElementById("timer");
@@ -19,7 +19,7 @@
         var seconds = Math.floor((elapsedTime % 60000) / 1000);
         timerElement.innerHTML = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds);
       }
-      
+	  
       function formatTime(time) {
         if (time < 10) {
           return "0" + time;
@@ -29,11 +29,39 @@
       }
     </script>
   </body>
+<head>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 </head>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      /* CSS to hide all text and images */
+      body.hide * {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="hideContent()">Nuke Website</button>
+	<h6>Reload page to un-nuke<h6>
+    <div id="replacement">
+    </div>
+    <script>
+      function hideContent() {
+        document.body.classList.add("hide"); // add "hide" class to the body element
+        document.getElementById("replacement").style.display = "block"; // show the replacement content
+		document.body.style.backgroundImage = "none"; // remove the background image of the page
+		document.body.style.backgroundColor = "#ffffff"; // set the background color of the page to plain white
+		document.title = ""; // set the title of the page to nothing
+		 window.location.href = "https://www.google.com"; // escape
+	  }
+    </script>
+  </body>
+</html>
 <body bgcolour=blue>
 <title>Obamium</title>
 <h1> Obamium <h1>
@@ -2425,6 +2453,9 @@ Weegeepedia
 <p>   </p>
 <a href="https://fandomium.fandom.com/wiki/Main_page">
 Fandomium (Fandom element wiki.)
+</a>
+<a href="https://chat.openai.com">
+Chat GPT (For generating the Nuke button snd stopwatch code)
 </a>
 <p> There are probably more sites I havent added in to the references because I didnt write the sites down. </p>
 <p> If you have an issue then email me. (Email below) </p>
