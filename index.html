@@ -62,6 +62,22 @@
     </script>
   </body>
 </html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      window.onload = function() {
+        var textChance = Math.random(); // generate a random number between 0 and 1
+        if (textChance <= 0.005) { // 0.5% chance
+          var header = document.createElement("h2");
+          header.innerText = "Congratulations, there is a 0.005% chance you will see this text :)";
+          var body = document.getElementsByTagName("body")[0];
+          body.insertBefore(header, body.firstChild);
+        }
+      }
+    </script>
+  </head>
+</html>
 <body bgcolour=blue>
 <title>Obamium</title>
 <h1> Obamium <h1>
