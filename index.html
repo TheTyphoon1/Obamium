@@ -1,5 +1,36 @@
 <html>
-<head>
+    <head>
+    <meta charset="UTF-8">
+    <title>Stopwatch</title>
+  </head>
+  <body onload="startTimer()">
+    <h1>Stopwatch</h1>
+    <p id="timer">00:00:00</p>
+    <script>
+      var startTime = Date.now();
+      var timerElement = document.getElementById("timer");
+      
+      function startTimer() {
+        setInterval(updateTimer, 1000);
+      }
+      
+      function updateTimer() {
+        var elapsedTime = Date.now() - startTime;
+        var hours = Math.floor(elapsedTime / 3600000);
+        var minutes = Math.floor((elapsedTime % 3600000) / 60000);
+        var seconds = Math.floor((elapsedTime % 60000) / 1000);
+        timerElement.innerHTML = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds);
+      }
+      
+      function formatTime(time) {
+        if (time < 10) {
+          return "0" + time;
+        } else {
+          return time;
+        }
+      }
+    </script>
+  </body>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
