@@ -92,6 +92,7 @@
 <h2>   <h2>
 <p style="color: red; "> Some text or images may be displayed incorrectly or not at all.</p>
 <h3>   <h3>
+
 <html>
 
 <head>
@@ -111,7 +112,7 @@
 </head>
 
 <body onload="setSelection()">
-    <form action="" method="post" onsubmit="rememberSelection()">
+    <form action="javascript:void(0);" method="post" onsubmit="rememberSelection(); return false;">
         <label for="options">Select a language to view the webpage in:</label>
         <select id="options" name="options">
             <option value="option1">English</option>
@@ -151,6 +152,7 @@
 </body>
 
 </html>
+
 
 <h4>Automated emails for something related to this coming soon...<h4>
 <h6> this is what i do when i get bored, your welcome :)<h6>
