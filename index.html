@@ -90,6 +90,42 @@
       background-size: cover;
     }
   </style>
+
+<h1>Search GitBook</h1>
+<input type="text" id="searchInput" placeholder="Enter your search query">
+<button onclick="performSearch()">Search</button>
+
+<div id="searchResults"></div>
+
+<script>
+    function performSearch() {
+        const apiKey = 'gb_api_jE9zCGha5aPakoguwJZvQNpHt3BSxq6q2N0FlRN2'; // Replace with your GitBook API key
+        const searchQuery = document.getElementById('searchInput').value;
+        const searchResultsDiv = document.getElementById('searchResults');
+
+        // Make a request to GitBook's search API
+        fetch(`https://api.gitbook.com/v1/search?q=${searchQuery}`, {
+            headers: {
+                'Authorization': `Bearer ${apiKey}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Process and display the search results
+            const results = data.results;
+            let html = '<h2>Search Results:</h2>';
+            results.forEach(result => {
+                html += `<p><a href="${result.url}">${result.title}</a></p>`;
+            });
+            searchResultsDiv.innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            searchResultsDiv.innerHTML = 'An error occurred during the search.';
+        });
+    }
+</script>
+	
 <h3>   <h3>
 <p style="color: red; "> Website Currently Under Modifications / Repairs</p>
 <p style="color: red; "> Some text or images may be displayed incorrectly or not at all.</p>
