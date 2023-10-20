@@ -91,40 +91,51 @@
     }
   </style>
 
-<h1>Search GitBook</h1>
-<input type="text" id="searchInput" placeholder="Enter your search query">
-<button onclick="performSearch()">Search</button>
+<html>
+<head>
+    <!-- Include GitBook JavaScript Library -->
+    <script src="https://cdn.jsdelivr.net/npm/gitbook-search@1.0.0/dist/gitbook-search.js"></script>
+    
+    <!-- Add GitBook Fonts (if needed) -->
+    <link rel="preload" as="font" type="font/woff2" href="https://app.gitbook.com/public/fonts/Roboto/Roboto-Bold.woff2?v=3.19" crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href="https://app.gitbook.com/public/fonts/Roboto/Roboto-BoldItalic.woff2?v=3.19" crossorigin="anonymous" />
+    
+    <!-- Add Your Styles (if needed) -->
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    
+    <!-- Add a Search Bar -->
+    <input id="gitbook-search-input" type="text" placeholder="Search...">
+    <button id="gitbook-search-button">Search</button>
+    
+    <!-- JavaScript for GitBook Search -->
+    <script>
+        // Event listener for the search button
+        document.getElementById("gitbook-search-button").addEventListener("click", function () {
+            // Get the user's search query
+            var query = document.getElementById("gitbook-search-input").value;
 
-<div id="searchResults"></div>
-
-<script>
-    function performSearch() {
-        const apiKey = 'gb_api_jE9zCGha5aPakoguwJZvQNpHt3BSxq6q2N0FlRN2'; // Replace with your GitBook API key
-        const searchQuery = document.getElementById('searchInput').value;
-        const searchResultsDiv = document.getElementById('searchResults');
-
-        // Make a request to GitBook's search API
-        fetch(`https://api.gitbook.com/v1/search?q=${searchQuery}`, {
-            headers: {
-                'Authorization': `Bearer ${apiKey}`
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Process and display the search results
-            const results = data.results;
-            let html = '<h2>Search Results:</h2>';
-            results.forEach(result => {
-                html += `<p><a href="${result.url}">${result.title}</a></p>`;
+            // Make an API request to GitBook
+            fetch("https://api.gitbook.com/v1/search?q=" + query, {
+                headers: {
+                    "Authorization": "Bearer gb_api_jE9zCGha5aPakoguwJZvQNpHt3BSxq6q2N0FlRN2"
+                }
+            })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                // Handle the search results and display them on your website
+                console.log(data);
             });
-            searchResultsDiv.innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            searchResultsDiv.innerHTML = 'An error occurred during the search.';
         });
-    }
-</script>
+    </script>
+</body>
+</html>
+
 	
 <h3>   <h3>
 <p style="color: red; "> Website Currently Under Modifications / Repairs</p>
